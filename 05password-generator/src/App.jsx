@@ -19,7 +19,7 @@ function App() {
     if (characters) str += "`~!@#$%^&*()_-+={}[]|\:;<>,.?/"
 
     for (let i = 1; i <= length; i++) {
-      let char = Math.floor(Math.random() * str.length + 1)
+      let char = Math.floor(Math.random() * str.length+1)
       pass += str.charAt(char)
 1  }
     setPassword(pass)
@@ -28,7 +28,7 @@ function App() {
 
   const copyPasswordToClipboard = useCallback(() => {
     passwordRef.current?.select()
-    passwordRef.current?.setSelectionRange(0, 100)
+    passwordRef.current?.setSelectionRange(0, 20)
     window.navigator.clipboard.writeText(password)}, [password])
 
   useEffect(() => {passwordGenerator()}, [length, number, characters, passwordGenerator])
@@ -53,7 +53,7 @@ function App() {
             <input 
             type="range"
             min={8}
-            max={100}
+            max={20}
             value={length}
             className='cursor-pointer'
             onChange={(e) => {setLength(e.target.value)}}
